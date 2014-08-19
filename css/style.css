@@ -12,11 +12,11 @@ button {
 	display: block;
 	margin: 10px auto;
 }
-input[type="text"] {
+input {
 	font-size: 14px;
 	margin: 10px 10px;
 }
-#display-number {
-	display: block;
+#randomNumber {
 	font-size: 50px;
+	display: block;
 }

@@ -1,10 +1,15 @@
-$('#get-number').click(setNumber);
+var ViewModel = function(minimum, maximum) {
+	this.minimum = ko.observable(minimum);
+	this.maximum = ko.observable(maximum);
+	this.randomNumber = ko.observable(generateRandomNumber(minimum, maximum));
 
-$('#floor').val(1);
-$('#ceiling').val(10);
+	this.numberGenerator = function() {
+		this.randomNumber(generateRandomNumber(this.minimum(), this.maximum()));
+	};
 
-function setNumber() {
-	var minimum = parseInt($('#floor').val());
-	var maximum = parseInt($('#ceiling').val());
-	$('#display-number').text(Math.floor(Math.random() * (maximum - minimum + 1)) + minimum);	
-}
+	function generateRandomNumber(minimum, maximum) {
+		return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+	}
+};
+
+ko.applyBindings(new ViewModel(1, 10));
