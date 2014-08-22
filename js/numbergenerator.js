@@ -4,11 +4,18 @@ var ViewModel = function(minimum, maximum) {
 	this.randomNumber = ko.observable(generateRandomNumber(minimum, maximum));
 
 	this.numberGenerator = function() {
+		if (this.minimum() > this.maximum()) {
+			var min = this.maximum();
+			var max = this.minimum();
+
+			this.minimum(min);
+			this.maximum(max);
+		}
 		this.randomNumber(generateRandomNumber(this.minimum(), this.maximum()));
 	};
 
 	function generateRandomNumber(minimum, maximum) {
-		return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+		return Math.floor(Math.random() * (parseFloat(maximum) - parseFloat(minimum) + 1)) + parseFloat(minimum);
 	}
 };
 

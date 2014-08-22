@@ -4,19 +4,56 @@
     <meta charset="utf-8">
     <title>Random Number Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/foundation.min.css" rel="stylesheet">
     <link href="css/normalize.min.css" rel="stylesheet">
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="css/foundation.min.css" rel="stylesheet">
+    <style>
+      * {
+        text-align: center;
+      }
+      p {
+        margin-bottom: 0px;
+      }
+      .random-number {
+        display: block;
+        font-size: 50px;
+      }
+      .number-range {
+        margin: 0 auto;
+      }
+      @media (max-width: 415px) {
+        .number-range  {
+          width: 13em;
+        }
+      }
+      .number-range input {
+        margin: 10px 10px;
+      }
+      .generate-button {
+        display: block;
+        margin: 10px auto;
+      }
+    </style>
   </head>
   <body>
     <div class="row">
         <h1>Generate a random number!</h1>
-        <p>Developed because I frequently needed a random number generator, and all the websites I found sent a post request to another page and looked like it was from the 90's.</p>
-        <p id="randomNumber" data-bind="text: randomNumber"></p>
-        <input data-bind="value: minimum" /><span>to</span><input data-bind="value: maximum" />
-        <button data-bind="click: numberGenerator">Generate!</button>
+        <p>Developed because I needed a random number generator and all the  websites I found couldn't dynamically generate a number.</p>
+        <p class="random-number" data-bind="text: randomNumber"></p>
+        <div class="number-range">
+          <input data-bind="value: minimum" data-tooltip aria-haspopup="true" data-options="disable_for_touch:true" class="tip-bottom" title="The minimum number." />
+          <span>to</span>
+          <input data-bind="value: maximum" data-tooltip aria-haspopup="true" data-options="disable_for_touch:true" class="tip-bottom" title="The maximum number." />
+        </div>
+        <button class="generate-button" data-bind="click: numberGenerator">Generate!</button>
     </div>    
-    <script src="js/knockout-3.2.0.js"></script>
-    <script src="js/script.min.js"></script>
+    <script src="js/vendor/knockout.js"></script>
+    <script src="js/numbergenerator.min.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/foundation/foundation.tooltip.js"></script>
+    <script type="text/javascript">
+      $(document).foundation();
+    </script>
   </body>
 </html>

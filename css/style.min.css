@@ -1,4 +1,0 @@
-*{text-align:center}h1{font-size:52px}p{font-size:14px;margin-bottom:0}button{display:block;margin:10px auto}input{font-size:14px;margin:10px 10px}#randomNumber{font-size:50px;display:block}
-@media only screen and (max-device-width :640px) and (max-device-height :480px){h1{margin:20px 0 0 0;font-size:44px}.row p{display:none}#randomNumber{font-size:42px}
-}@media only screen and (max-device-width :480px) and (max-device-height :320px){h1{margin:4px 0 0 0}}@media only screen and (max-device-width :360px) and (max-device-height :568px){h1{margin-top:6px}
-span{display:block}.row p{display:none}#randomNumber{font-size:42px}}
